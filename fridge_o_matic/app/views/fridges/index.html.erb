@@ -1,0 +1,10 @@
+<ul>
+  <li><%= link_to "Create New Fridge", new_fridge_path %></li>
+
+
+<p>Select a fridge for more options</p>
+
+<% @fridges.each do |fridge| %>
+<h2><%= link_to "Fridge# #{fridge.id}", fridge_path(fridge.id) %></h2>
+<p> </p>
+<% end %>

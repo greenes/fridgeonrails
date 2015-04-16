@@ -1,0 +1,23 @@
+<% if @fridge.errors.any? %>
+<ul>
+    <% @fridge.errors.full_messages.each do |err|%>
+    <li> <%=err%></li>
+    <%end%>
+
+</ul>
+<% end %>
+
+  <%= form_for @fridge do |f| %>
+
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+
+    <%= f.label :brand %>
+    <%= f.text_area :brand %>
+
+    <%= f.label :size %>
+    <%= f.text_area :size %>
+
+    <%= f.submit %>
+
+  <%end%>

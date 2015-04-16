@@ -1,0 +1,42 @@
+
+
+  <h2> <%= "Fridge #{@fridge.id}" %></h2>
+  <p> Details:</p>
+  <ul>
+    <li><%="Location: #{@fridge.location}"%></li>
+    <li><%="Brand: #{@fridge.brand}"%></li>
+    <li><%="Size: #{@fridge.size}sqft"%></li>
+  </ul>
+
+
+
+  <h2><%= link_to "update fridge details", edit_fridge_path %> </h2>
+
+  <%= form_tag fridge_path(@fridge.id), method: "delete" do %>
+    <%= submit_tag("delete this fridge and all its contents")%>
+    <%end%>
+
+    <h3 class="food">Food in this fridge:</h3>
+    <p><%@fridge.foods.all.each do |food|%></p>
+    <p class="list"> <%= "#{food.name}: #{food.weight}lbs, time put in: #{food.created_at}" %>
+      <%= form_tag fridge_food_path(@fridge.id, food.id), method: "delete" do %>
+        <%= submit_tag("eat this #{food.name}")%>
+        <p> </p>
+        <% end %>
+        </p>
+    <%end%>
+
+    <%= link_to "Add a food to this fridge", new_fridge_food_path(@fridge.id) %></h2>
+
+
+    <h3 class="food">Drinks in this fridge:</h3>
+    <p><%@fridge.drinks.all.each do |drink|%></p>
+    <p class="list"> <%= "#{drink.name}: #{drink.totaloz}oz, time put in: #{drink.created_at}" %>
+      <%= form_tag fridge_drink_path(@fridge.id, drink.id), method: "delete" do %>
+        <%= submit_tag("drink this #{drink.name}")%>
+        <p> </p>
+        <% end %>
+        </p>
+    <%end%>
+
+    <%= link_to "Add a drink to this fridge", new_fridge_drink_path(@fridge.id) %></h2>

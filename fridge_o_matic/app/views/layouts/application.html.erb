@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>FridgeOMatic</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <h1>Fridge-o-Matic</h1>
+  <p class="content">A simple solution for complex fridge issues</p>
+  <img src="http://www.appliancesonlineblog.com.au/wp-content/uploads/2012/04/retro-fridge.jpg"></a>
+  <p> <%= link_to "Home", fridges_path %> </p>
+
+<%= yield %>
+
+</body>
+
+<footer>
+  <p>FridgeManager &trade;</p>
+
+</footer>
+
+</html>

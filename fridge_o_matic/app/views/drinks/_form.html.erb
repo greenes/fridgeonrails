@@ -1,0 +1,21 @@
+<% if @drink.errors.any? %>
+<ul>
+    <% @drink.errors.full_messages.each do |err|%>
+    <li> <%=err%></li>
+    <%end%>
+
+</ul>
+<% end %>
+
+  <%= form_for [@fridge, @drink] do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :totaloz %>
+    <%= f.text_field :totaloz %>
+
+
+    <%= f.submit %>
+
+  <%end%>
