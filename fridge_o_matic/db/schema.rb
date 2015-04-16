@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150416003801) do
   end
 
   create_table "fridges", force: :cascade do |t|
+    t.integer "user_id"
     t.string  "location"
     t.string  "brand"
     t.integer "size"

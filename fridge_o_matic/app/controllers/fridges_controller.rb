@@ -1,7 +1,9 @@
 class FridgesController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
-    @fridges = Fridge.all
+    @fridges = current_user.fridges
   end
 
   def show
@@ -13,7 +15,7 @@ class FridgesController < ApplicationController
   end
 
   def create
-    @fridge = Fridge.new(fridge_params)
+    @fridge = current_user.fridges.new(fridge_params)
       if @fridge.save
         redirect_to @fridge
       else
